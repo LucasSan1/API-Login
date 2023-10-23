@@ -10,7 +10,7 @@ const controllerL = require('./controller/controllerLogin')
 mongoose.Promise = global.Promise;
 
 // Conectando com o banco
-mongoose.connect('mongodb+srv://API:1234@cluster0.9rqhqsn.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.9rqhqsn.mongodb.net/?retryWrites=true&w=majority', {
     dbName: 'Login'
 })
 
