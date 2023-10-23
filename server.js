@@ -10,6 +10,11 @@ require('dotenv').config()
 
 mongoose.Promise = global.Promise;
 
+//Midlewares da API
+app.use(cors());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 const DB_USER = process.env.DB_USER
 const DB_PASSWORD = encodeURIComponent(process.env.DB_PASSWORD)
 
@@ -25,10 +30,6 @@ mongoose.connect('mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.9rqhqsn.mongo
     console.error(error);
 });
 
-//Midlewares da API
-app.use(cors());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 
 //Rotas da API
 app.post("/cadastro", controllerR.post)
