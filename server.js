@@ -25,19 +25,13 @@ mongoose.connect('mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.9rqhqsn.mongo
     console.error(error);
 });
 
+//Midlewares da API
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+//Rotas da API
 app.post("/cadastro", controllerR.post)
-
-// app.post("/cadastro" , (req,res) =>{
-//     let email = req.body.email
-//     let senha = req.body.senha 
-
-//     console.log(email,senha)
-//     res.json("True").status(200)
-// })
 app.post("/usuario", controllerL.post)
 
 app.listen(port, () => {
